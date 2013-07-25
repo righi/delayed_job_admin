@@ -48,16 +48,6 @@
 <script>
   $(document).ready(function(){
 
-    $(".job").hover(
-      function () {
-        $(this).css("cursor", "pointer");
-        $(this).addClass("hover");
-      },
-      function () {
-        $(this).removeClass("hover");
-      }
-    );
-
     $(".job").click(function(event){
       $(this).next("tr").toggle();
     });
