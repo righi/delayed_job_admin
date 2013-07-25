@@ -1,4 +1,4 @@
-<p>Delayed::Job.count: <%= Delayed::Job.count %></p>
+<p>Job Count: <%= @jobs.count %></p>
 
 <table id="jobs">
   <thead>
@@ -17,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    <% Delayed::Job.all.reverse.each do |job| %>
+    <% @jobs.each do |job| %>
       <tr class="job" id="job-<%= job.id %>">
         <td><%= job.id %></td>
         <td><%= job.priority %></td>
