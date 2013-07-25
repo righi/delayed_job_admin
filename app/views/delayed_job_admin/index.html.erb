@@ -31,6 +31,14 @@
         <td><%= job.created_at.to_s(:short) %></td>
         <td><%= job.updated_at.to_s(:short) %></td>
       </tr>
+      <tr class="job-details">
+        <td colspan="11">
+          <form method="POST" action="<%= delayed_job_path(job.id) %>">
+            <input type="submit" name="submit" value="Remove Job" />
+            <input type="hidden" name="_method" value="DELETE">
+          </form>	
+        </td>	
+      </tr>		
       <tr class="job-details" id="job-details-<%= job.id %>">
         <td colspan="11">
           <p><pre><%= job.to_yaml %></pre></p>
@@ -50,6 +58,7 @@
 
     $(".job").click(function(event){
       $(this).next("tr").toggle();
+      $(this).next("tr").next("tr").toggle();
     });
 
   });
